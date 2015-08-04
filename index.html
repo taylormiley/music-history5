@@ -3,13 +3,14 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="styles/style.css">
+  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css"></link>
   <title>Nashville Software School</title>
 </head>
 <body>
   <div class="wrapper">
   <header>
-    <nav>
+    <!-- <nav>
       <ul>
         <li>View Music</li>
         <li class="separator">|</li>
@@ -17,13 +18,48 @@
         <li class="separator">|</li>
         <li><a href="#">Profile</a></li>
       </ul>
-    </nav>
+    </nav> -->
+    <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">ChiefDoogin</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">View Music <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Add Music</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
   </header>
   <br>
-  
+  <div class="row">
+  <div class="col-xs-2">
   <div class="inline">  
-    
-  <article class="leftpanel">
+    <div class="leftpanel">
+    <div class="panel-body">
     <label>Song length:</label>
     <br>
     <input type="range" class:"slider"></input>
@@ -45,7 +81,32 @@
         <option>c</option>
       </select>
     <label class="genre">Genre:</label>
-      <br>
+
+    <div class="btn-group btn-group-justified" role="group" aria-label="..." data-toggle="buttons">
+      <label class="btn btn-primary active">
+        <input type="radio" name="options" id="option1" autocomplete="off" checked> Rock
+      </label>
+      <label class="btn btn-primary">
+        <input type="radio" name="options" id="option2" autocomplete="off"> Classical
+      </label>
+    </div>
+    <div class="btn-group btn-group-justified" role="group" aria-label="..." data-toggle="buttons">
+      <label class="btn btn-primary active">
+        <input type="checkbox" autocomplete="off" checked> Pop
+      </label>
+      <label class="btn btn-primary">
+        <input type="checkbox" autocomplete="off"> Jazz
+      </label>
+    </div>
+    <div class="btn-group btn-group-justified" role="group" aria-label="..." data-toggle="buttons">
+      <label class="btn btn-primary active">
+        <input type="checkbox" autocomplete="off" checked> Blues
+      </label>
+      <label class="btn btn-primary">
+        <input type="checkbox" autocomplete="off"> Hip hop
+      </label>
+    </div>
+      <!-- <br>
       <div class="leftcheck">
         <input type="checkbox" name="genre" value="Rock">Rock</input>
         <br>
@@ -61,18 +122,19 @@
         <br>
         <input type="checkbox" name="genre" value="Hip hop">Hip hop</input>
         <br/>
-      </div>
+      </div> -->
+      <br>
       <center><button class="filterbutton">Filter</button></center>
-  </article>
-  
-  <br>
-  
-  <article id="container" class="rightpanel"> 
-    <button id="expandButton">Expand</button>
-  </article>
+      </div>
+      </div>
+    </div>
+    </div>
+    <article id="container" class="rightpanel"class="col-xs-3">
+      <button id="expandButton">Expand</button>
+    </article>
 
   </div>
-  
+  </div>
   </div>
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script data-main="javascripts/js-101" src="bower_components/requirejs/require.js"></script>
