@@ -3,11 +3,11 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="styles/style.css">
+  <link rel="stylesheet" type="text/css" href="styles/main.css">
   <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css"></link>
   <title>Nashville Software School</title>
 </head>
-<body>
+<body class="derpBody">
   <div class="wrapper">
   <header>
     <!-- <nav>
@@ -55,86 +55,62 @@
 </nav>
   </header>
   <br>
-  <div class="row">
-  <div class="col-xs-2">
-  <div class="inline">  
-    <div class="leftpanel">
-    <div class="panel-body">
-    <label>Song length:</label>
-    <br>
-    <input type="range" class:"slider"></input>
+  <div class="row row-eq-height">
+    <div class="col-xs-2 inline leftpanel panel panel-default">
+      <div class="panel-body">
+      <label>Song length:</label>
       <br>
-    <label>Artist:</label>
+      <input type="range" class:"slider"></input>
       <br>
+      <label>Artist:</label>
       <select for="artist">
         <option>Options</option>
         <option>a</option>
         <option>b</option>
         <option>c</option>
       </select>
-    <label>Album:</label>
       <br>
+      <label>Album:</label>
       <select for="album">
         <option>Options</option>
         <option>a</option>
         <option>b</option>
         <option>c</option>
       </select>
-    <label class="genre">Genre:</label>
-
-    <div class="btn-group btn-group-justified" role="group" aria-label="..." data-toggle="buttons">
-      <label class="btn btn-primary active">
+      <br>
+      <label class="genre">Genre:</label>
+  
+      <div class="btn-group btn-group-justified" role="group" aria-label="..." data-toggle="buttons">
+        <label class="btn btn-primary active">
         <input type="radio" name="options" id="option1" autocomplete="off" checked> Rock
       </label>
       <label class="btn btn-primary">
         <input type="radio" name="options" id="option2" autocomplete="off"> Classical
       </label>
-    </div>
-    <div class="btn-group btn-group-justified" role="group" aria-label="..." data-toggle="buttons">
+      </div>
+      <div class="btn-group btn-group-justified" role="group" aria-label="..." data-toggle="buttons">
       <label class="btn btn-primary active">
         <input type="checkbox" autocomplete="off" checked> Pop
       </label>
       <label class="btn btn-primary">
         <input type="checkbox" autocomplete="off"> Jazz
       </label>
-    </div>
-    <div class="btn-group btn-group-justified" role="group" aria-label="..." data-toggle="buttons">
+      </div>
+      <div class="btn-group btn-group-justified" role="group" aria-label="..." data-toggle="buttons">
       <label class="btn btn-primary active">
         <input type="checkbox" autocomplete="off" checked> Blues
       </label>
       <label class="btn btn-primary">
         <input type="checkbox" autocomplete="off"> Hip hop
       </label>
-    </div>
-      <!-- <br>
-      <div class="leftcheck">
-        <input type="checkbox" name="genre" value="Rock">Rock</input>
-        <br>
-        <input type="checkbox" name="genre" value="Pop">Pop</input>
-        <br>
-        <input type="checkbox" name="genre" value="Blues">Blues</input>
-        <br>
       </div>
-      <div class="rightcheck">    
-        <input class ="right" type="checkbox" name="genre" value="Classical">Classical</input>
-        <br>
-        <input type="checkbox" name="genre" value="Jazz">Jazz</input>
-        <br>
-        <input type="checkbox" name="genre" value="Hip hop">Hip hop</input>
-        <br/>
-      </div> -->
       <br>
       <center><button class="filterbutton">Filter</button></center>
       </div>
-      </div>
     </div>
-    </div>
-    <article id="container" class="rightpanel"class="col-xs-3">
+    <div id="container" class="rightpanel inline col-xs-9">
       <button id="expandButton">Expand</button>
-    </article>
-
-  </div>
-  </div>
+    </div>
   </div>
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script data-main="javascripts/js-101" src="bower_components/requirejs/require.js"></script>

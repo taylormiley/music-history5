@@ -3,5 +3,12 @@ $primary-color: #333;
 
 body {
   font: 100% $font-stack;
-  color: $primary-color;
+  background-color: $primary-color;
 }
+
+.derpBody {
+  background-color: $primary-color;
+}
+
+@import 'panel';
+

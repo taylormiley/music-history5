@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAGA,IAAK;EACH,IAAI,EAAE,0BAAgB;EACtB,gBAAgB,EAJF,IAAI;;ACDpB,aAAc;EACZ,KAAK,EAAE,KAAK",
+"sources": ["../sass/main.scss","../sass/panel.scss"],
+"names": [],
+"file": "main.css"
+}
