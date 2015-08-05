@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "AAGA,IAAK;EACH,IAAI,EAAE,0BAAgB;EACtB,gBAAgB,EAJF,IAAI;;ACDpB,aAAc;EACZ,KAAK,EAAE,KAAK",
-"sources": ["../sass/main.scss","../sass/panel.scss"],
+"mappings": "AAGA,IAAK;EACH,WAAW,EAAE,IAAI;EACjB,IAAI,EALU,qBAAS;EAMvB,gBAAgB,EAAE,iFAAiF;;AAGrG,SAAU;EACR,gBAAgB,EATF,IAAI;;AAYpB,cAAe;EACb,OAAO,EAAE,WAAW;EACpB,OAAO,EAAE,YAAY;EACrB,OAAO,EAAE,WAAW;EACpB,OAAO,EAAU,IAAI;;ACjBvB,aAAc;EACZ,KAAK,EAAE,KAAK;;AAGd,EAAG;EACD,UAAU,EAAE,GAAG;EACf,aAAa,EAAE,GAAG;;AAGpB,cAAe;EACb,MAAM,EAAE,IAAI;;ACVd,UAAW;EACT,UAAU,EAAE,MAAM;;ACDpB,cAAe;EACb,gBAAgB,EAAE,IAAI;EACtB,kBAAkB,EAAE,EAAE;;AAGxB,iBAAkB;EAChB,gBAAgB,EAAE,IAAI;EACtB,kBAAkB,EAAE,EAAE",
+"sources": ["../sass/main.scss","../sass/panel.scss","../sass/leftPanel.scss","../sass/navbar.scss"],
 "names": [],
 "file": "main.css"
 }

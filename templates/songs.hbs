@@ -1,0 +1,13 @@
+<div class="outputDiv">
+  {{#each songs}}
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3>{{name}}</h3>
+    </div>
+    <div class="panel-body">
+    Performed by {{artist}} on the album {{album}}
+    <button type="button" class="removeButton">Remove</button>
+  </div>
+  </div>
+  {{/each}}
+</div>

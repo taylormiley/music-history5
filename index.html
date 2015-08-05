@@ -3,13 +3,14 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="styles/main.css">
   <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css"></link>
+  <link rel="stylesheet" type="text/css" href="styles/main.css">
+  
   <title>Nashville Software School</title>
 </head>
 <body class="derpBody">
   <div class="wrapper">
-  <header>
+<header>
     <!-- <nav>
       <ul>
         <li>View Music</li>
@@ -19,8 +20,8 @@
         <li><a href="#">Profile</a></li>
       </ul>
     </nav> -->
-    <nav class="navbar navbar-default">
-  <div class="container-fluid">
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid navbar-container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -50,13 +51,14 @@
           </ul>
         </li>
       </ul>
+      </div>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-  </header>
+</header>
   <br>
-  <div class="row row-eq-height">
-    <div class="col-xs-2 inline leftpanel panel panel-default">
+  <div class="row">
+    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 leftpanel panel panel-default">
       <div class="panel-body">
       <label>Song length:</label>
       <br>
@@ -108,12 +110,10 @@
       <center><button class="filterbutton">Filter</button></center>
       </div>
     </div>
-    <div id="container" class="rightpanel inline col-xs-9">
-      <button id="expandButton">Expand</button>
+    <div id="container" class="rightpanel col-xs-12 col-sm-9 col-md-9 col-lg-8">
+      <button id="expandButton" class="separation--top">Load More &gt;</button>
     </div>
   </div>
-  <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script data-main="javascripts/js-101" src="bower_components/requirejs/require.js"></script>
-  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -2,13 +2,28 @@ $font-stack:    Helvetica, sans-serif;
 $primary-color: #333;
 
 body {
-  font: 100% $font-stack;
-  background-color: $primary-color;
+  padding-top: 50px;
+  font: $font-stack;
+  background-image: url("http://img06.deviantart.net/a7d3/i/2006/083/a/2/carbon_fiber_by_joni78.png");
 }
 
 .derpBody {
   background-color: $primary-color;
 }
 
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+
+
+@media screen and (min-width: 320px) {
+
+}
+
 @import 'panel';
+@import 'leftPanel';
+@import 'navbar';
 

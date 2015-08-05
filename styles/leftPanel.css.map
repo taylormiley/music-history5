@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,UAAW;EACT,UAAU,EAAE,MAAM",
+"sources": ["../sass/leftPanel.scss"],
+"names": [],
+"file": "leftPanel.css"
+}

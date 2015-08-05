@@ -1,13 +1,36 @@
 body {
-  font: 100% Helvetica, sans-serif;
-  background-color: #333; 
-}
+  padding-top: 50px;
+  font: Helvetica, sans-serif;
+  background-image: url("http://img06.deviantart.net/a7d3/i/2006/083/a/2/carbon_fiber_by_joni78.png"); }
 
 .derpBody {
-  background-color: #333;
-}
+  background-color: #333; }
 
-#removeButton {
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+.removeButton {
   float: right; }
+
+h3 {
+  margin-top: 0px;
+  margin-bottom: 0px; }
+
+.panel-heading {
+  height: 50px; }
+
+.leftpanel {
+  text-align: center; }
+
+.navbar-header {
+  background-color: cyan;
+  background-opacity: .5; }
+
+.navbar-container {
+  background-color: cyan;
+  background-opacity: .5; }
 
 /*# sourceMappingURL=main.css.map */
