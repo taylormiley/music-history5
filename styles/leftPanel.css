@@ -1,4 +1,14 @@
 .leftpanel {
   text-align: center; }
 
+#options {
+  width: 250px;
+  height: 21px;
+  font-size: 21px; }
+
+#options2 {
+  width: 250px;
+  height: 21px;
+  font-size: 21px; }
+
 /*# sourceMappingURL=leftPanel.css.map */

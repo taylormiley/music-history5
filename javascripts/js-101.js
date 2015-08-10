@@ -2,139 +2,107 @@ requirejs.config({
   baseUrl: './javascripts',
   paths: {
     'jquery': '../bower_components/jquery/dist/jquery.min',
+    'firebase': '../bower_components/firebase/firebase',
+    'lodash': '../bower_components/lodash/lodash.min',
     'hbs': '../bower_components/require-handlebars-plugin/hbs',
     'bootstrap': '../bower_components/bootstrap/dist/js/bootstrap.min'
   },
   shim: {
-    'bootstrap': ['jquery']
+    'bootstrap': ['jquery'],
+    'firebase': {
+      exports: 'Firebase'
+    }
   }
 });
 
 requirejs(
-  ["jquery", "hbs", "bootstrap", "dom-access", "populate-songs", "get-more-songs"], 
-  function($, Handlebars, bootstrap, domAccess, pop, get_more) {
+  ["jquery", "firebase", "lodash", "hbs", "bootstrap", "dom-access", "populate-songs"], 
+  function($, _firebase, _, Handlebars, bootstrap, domAccess, pop) {
+    var myFirebaseRef = new Firebase("https://glaring-inferno-3339.firebaseio.com/");
+    myFirebaseRef.child('songs').on("value", function(snapshot) {
+      songs = snapshot.val();
+      console.log(snapshot.val());
+      var allSongsArray = [];
+
+      for (var obj in songs) {
+        allSongsArray[allSongsArray.length] = songs[obj];
+      }
+      console.log(allSongsArray);
+
+      var allArtistsArray;
+      allArtistsArray = _.pluck(_.sortBy(allSongsArray, 'artist'), 'artist');
+      allArtistsArray = _.uniq(allArtistsArray);
+      console.log(allArtistsArray);
+
+      var allAlbumsArray;
+      allAlbumsArray = _.pluck(_.sortBy(allSongsArray, 'album'), 'album');
+      allAlbumsArray = _.uniq(allAlbumsArray);
+      console.log(allAlbumsArray);
+
+      require(['hbs!../templates/songs'], function(songTemplate) {
+        $("#container").html(songTemplate(allSongsArray));
+      });
+      require(['hbs!../templates/dropdown'], function(dropdownTemplate) {
+        $("#options").append(dropdownTemplate(allArtistsArray));
+      });
+      require(['hbs!../templates/dropdown2'], function(dropdown2Template) {
+        $("#options2").append(dropdown2Template(allAlbumsArray));
+      });
+
+      $('#options').change(function() {
+        var aritstSelected = $("#options").val();
+        var albumsNarrowed = _.pluck(_.filter(allSongsArray, {artist: aritstSelected}), 'album');
+            albumsNarrowed = _.uniq(albumsNarrowed);
+        console.log(albumsNarrowed);
+        require(['hbs!../templates/dropdown2'], function(dropdown2Template) {
+          $('#options2').html(dropdown2Template(albumsNarrowed));
+        });
+      });
+    });
+
+    
     var outputList = domAccess.getOutputElement(); 
     var outputDiv;
     var removeButton;
     var expandButton;
 
-    pop.querySongs(function(songs) {
-      console.log("data", songs);
-      require(['hbs!../templates/songs'], function(songTemplate) {
-        $("#expandButton").before(songTemplate(songs));
-      });
-
-    //   for(var i = 0; i < data2.length; i++) {
-  
-    //     outputDiv = document.createElement("div");
-    //     outputDiv.className = "outputDiv panel panel-default";
-    //     outputList.append(outputDiv);
-
-    //     var panelHeading = document.createElement("div");
-    //     panelHeading.className = "panel-heading";
-    //     outputDiv.appendChild(panelHeading);
-  
-    //     var h3 = document.createElement("h3");
-    //     h3.className = "panel-title";
-    //     h3.innerHTML = data2[i].name;
-    //     panelHeading.appendChild(h3);
-
-    //     var panelBody = document.createElement("div");
-    //     panelBody.className = "panel-body";
-    //     outputDiv.appendChild(panelBody);
-
-        
-    //     var span = document.createElement("span");
-    //     span.innerHTML = data2[i].artist;
-    //     panelBody.appendChild(span);
-       
-    //     var span1 = document.createElement("span");
-    //     span1.innerHTML = data2[i].album;
-    //     panelBody.appendChild(span1);
-    //     var removeButton = document.createElement("button");
-    //     removeButton.id = "removeButton";
-    //     $(removeButton).attr("type", "button");
-    //     $(removeButton).text("Remove");
-    //     panelBody.appendChild(removeButton);
-
-
-    //     var expandButton = document.getElementById("expandButton");
-    //     outputList.append(expandButton);
-    //     $("#expandButton").attr("type", "button");
-    //   }
-    });
-    
-    
-    $(document).on("click", "#expandButton", function() {
-      get_more.querySongs(function(songs) {
+    $(document).on("click", ".filterButton", function () {
+      $('.songDiv').remove();
+      myFirebaseRef.on("value", function(snapshot) {
         console.log("data", songs);
         require(['hbs!../templates/songs'], function(songTemplate) {
-        $("#expandButton").before(songTemplate(songs));
-      });
-
-        // for(var i = 0; i < data2.length; i++) {
-  
-        //   outputDiv = document.createElement("div");
-        //   outputDiv.className = "outputDiv panel panel-default";
-        //   $("#expandButton").before(outputDiv);
-
-        //   var panelHeading = document.createElement("div");
-        //   panelHeading.className = "panel-heading";
-        //   outputDiv.appendChild(panelHeading);
-  
-        //   var h3 = document.createElement("h3");
-        //   h3.className = "panel-title";
-        //   h3.innerHTML = data2[i].name;
-        //   panelHeading.appendChild(h3);
-
-        //   var panelBody = document.createElement("div");
-        //   panelBody.className = "panel-body";
-        //   outputDiv.appendChild(panelBody);
-        
-        //   var span = document.createElement("span");
-        //   span.innerHTML = data2[i].artist;
-        //   panelBody.appendChild(span);
-       
-        //   var span1 = document.createElement("span");
-        //   span1.innerHTML = data2[i].album;
-        //   panelBody.appendChild(span1);
-        //   var removeButton = document.createElement("button");
-        //   removeButton.id = "removeButton";
-        //   $(removeButton).attr("type", "button");
-        //   $(removeButton).text("Remove");
-        //   panelBody.appendChild(removeButton);
+          $("#container").append(songTemplate(songs));
+          var songDiv = $(".songDiv");
+          console.log(songDiv);
+          var artistName = $(".artistName").val();
+          console.log(artistName);
+          var options = $('#options').val();
+          console.log(options);
+          var options2 = $('#options2').val();
+          var checkBox = $('#genreCheckbox :checked').map(function() {
+            return $(this).val();
+          }).get().toString();
+          console.log(checkBox);
+          if (!options && !options2) {
+            $('.songDiv').not('.songDiv:contains(' + checkBox + ')').remove();
+          } else if (options) {
+            $('.songDiv').not('.songDiv:contains(' + options + '):contains(' + options2 + ')').remove();  
+          } else if (!options) {
+            $('.songDiv').not('.songDiv:contains(' + options2 + ')').remove();
+          } else if (!options2) {
+            $('.songDiv').not('.songDiv:contains(' + options + ')').remove();
+          }
           
-        // }
+        });
       });
     });
+    
     $(document).on("click", ".removeButton", function () {
       $(this).parent().parent().remove();
     });
-
   }
 );
 
    
 
 
-  
-// for(var i = 0; i < data.songs2.length; i++) {
-//       outputDiv = document.createElement("div");
-//       $(expandButton).before(outputDiv);
-  
-//       var h3 = document.createElement("h3");
-//       h3.innerHTML = data.songs2[i].name;
-//       outputDiv.appendChild(h3);
-            
-//       var span = document.createElement("span");
-//       span.innerHTML = data.songs2[i].artist;
-//       outputDiv.appendChild(span);
-           
-//       var span1 = document.createElement("span");
-//       span1.innerHTML = data.songs2[i].album;
-//       outputDiv.appendChild(span1);
-
-//       var removeButton = document.createElement("button");
-//       $(removeButton).attr("type", "button");
-//       $(removeButton).text("Remove");
-//       outputDiv.appendChild(removeButton);

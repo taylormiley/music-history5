@@ -56,56 +56,33 @@
   </div><!-- /.container-fluid -->
 </nav>
 </header>
-  <br>
-  <div class="row">
-    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 leftpanel panel panel-default">
-      <div class="panel-body">
-      <label>Artist:</label>
-      <br>
-      <select id="options" for="artist">
-        <option value="" disabled selected>Select </option>
-      </select>
-      <br>
-      <label>Album:</label>
-      <br>
-      <select id="options2" for="album">
-        <option value="" disabled selected>Select </option>
-      </select>
-      <br>
-      <label class="genre">Genre:</label>
-      <div id="genreCheckbox">
-        <div class="btn-group btn-group-justified" role="group" aria-label="..." data-toggle="buttons">
-          <label class="btn btn-primary">
-          <input type="checkbox" autocomplete="off" value="Rock"> Rock
-          </label>
-          <label class="btn btn-primary">
-          <input type="checkbox" autocomplete="off" value="Classical"> Classical
-          </label>
-        </div>
-        <div class="btn-group btn-group-justified" role="group" aria-label="..." data-toggle="buttons">
-          <label class="btn btn-primary">
-          <input type="checkbox" autocomplete="off" value="Pop"> Pop
-          </label>
-          <label class="btn btn-primary">
-          <input type="checkbox" autocomplete="off" value="Jazz"> Jazz
-          </label>
-        </div>
-        <div class="btn-group btn-group-justified" role="group" aria-label="..." data-toggle="buttons">
-          <label class="btn btn-primary">
-          <input type="checkbox" autocomplete="off" value="Blues"> Blues
-          </label>
-          <label class="btn btn-primary">
-          <input type="checkbox" autocomplete="off" value="Hip hop"> Hip hop
-          </label>
-        </div>
-      </div>
-      <br>
-      <center><button type="button" class="filterButton">Filter</button></center>
-      </div>
-    </div>
-    <div id="container" class="rightpanel col-xs-12 col-sm-9 col-md-9 col-lg-8">
-    </div>
+<div id="formDiv">
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Song:</span>
+    <input type="text" class="form-control" id="songInput" placeholder="Song Title" aria-describedby="basic-addon1">
   </div>
-  <script data-main="javascripts/js-101" src="bower_components/requirejs/require.js"></script>
+  
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Artist:</span>
+    <input type="text" class="form-control" id="artistInput" placeholder="Artist Name" aria-describedby="basic-addon1">
+  </div>  
+  
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Album:</span>
+    <input type="text" class="form-control" id="albumInput" placeholder="Album Title" aria-describedby="basic-addon1">
+  </div>
+
+  <div>
+    <select id="genre" for="genre">
+      <option value="" disabled selected>Select </option>
+      <option value="Rock">Rock</option>
+      <option value="Classical">Classical</option>
+      <option value="Pop">Pop</option>
+      <option value="Jazz">Jazz</option>
+      <option value="Blues">Blues</option>
+      <option value="Hip hop">Hip hop</option>
+</div>
+<center><button id="addMusicButton" type="submit">Add Music</button></center>
+<script data-main="javascripts/addMusic" src="bower_components/requirejs/require.js"></script>
 </body>
 </html>

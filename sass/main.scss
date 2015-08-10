@@ -7,6 +7,11 @@ body {
   background-image: url("http://img06.deviantart.net/a7d3/i/2006/083/a/2/carbon_fiber_by_joni78.png");
 }
 
+.input-group {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
 .derpBody {
   background-color: $primary-color;
 }
@@ -21,6 +26,12 @@ body {
 
 @media screen and (min-width: 320px) {
 
+}
+
+#genre {
+  width: 200px;
+  height: 50px;
+  font-size: 30px;
 }
 
 @import 'panel';

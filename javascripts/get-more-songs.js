@@ -1,10 +1,17 @@
-define(["jquery"],function() {
+define(["jquery", "addMusic"],function() {
   return {
-    querySongs: function(callback) {
+    postSongs: function(callback) {
+      var newSong = {};
+          newSong.song = $("#songInput").val();
+          newSong.artist = $("#artistInput").val();
+          newSong.album = $("#albumInput").val();
+      console.log(newSong);
       $.ajax({
-        url: "javascripts/secondary.json"
-      }).done(function(data) {
-        callback.call(this, data);
+        url: "https://glaring-inferno-3339.firebaseio.com/songs.json",
+        method: "POST",
+        data: JSON.stringify(newSong)
+      }).done(function(newSong) {
+        console.log("newSong", newSong);
       });
     }
   };

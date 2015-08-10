@@ -1,11 +1,11 @@
 <div class="outputDiv">
-  {{#each songs}}
-  <div class="panel panel-default">
+  {{#each this}}
+  <div class="panel panel-default songDiv">
     <div class="panel-heading">
       <h3>{{name}}</h3>
     </div>
-    <div class="panel-body">
-    Performed by {{artist}} on the album {{album}}
+    <div class="panel-body artistName">
+    Performed by <b>{{artist}}</b> on the album <b id="albumName">{{album}}</b> | Genre: <b>{{genre}}</b>
     <button type="button" class="removeButton">Remove</button>
   </div>
   </div>
